@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Human Bingo – My Moments</title>
+  <link rel="icon" href="logo.png" type="image/png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="main">
+    <div class="bg-blob">
+      <div class="blob1"></div>
+    </div>
+    <div id="loading" class="center">
+      <div class="loading">
+        <div class="spinner"></div>
+        <span class="text-lg">Loading your moments...</span>
+      </div>
+    </div>
+    <div id="notFound" class="center" style="display: none;">
+      <div class="max-w-md space-y-4 text-center">
+        <p class="text-lg text-muted">Could not load your moments. Join a game and get BINGO first!</p>
+        <a href="index.html" class="btn btn-outline">Back Home</a>
+      </div>
+    </div>
+    <div id="content" class="max-w-lg mx-auto space-y-6 p-4 pt-4" style="display: none;">
+      <div class="text-center">
+        <h1 class="font-title text-2xl">Your embarrassing moments</h1>
+        <p class="text-muted mt-2"><span id="playerName"></span>, here's what you marked on your BINGO card.</p>
+      </div>
+      <div id="confessionBlock" class="glass-strong p-5 rounded-2xl" style="display: none;">
+        <h2 class="text-sm font-bold text-accent mb-2">Your confession</h2>
+        <p id="confessionText" class="whitespace-pre-wrap italic text-sm"></p>
+      </div>
+      <div class="glass-strong p-5 rounded-2xl">
+        <h2 class="text-sm font-bold text-accent mb-4">Moments you had (from your BINGO card)</h2>
+        <ul id="momentsList" class="space-y-2"></ul>
+      </div>
+      <div class="flex gap-3">
+        <a id="resultsLink" href="#" class="btn btn-primary flex-1 h-14 rounded-xl font-semibold">View all results</a>
+        <a href="index.html" class="btn btn-outline flex-1 h-14 rounded-xl">Back Home</a>
+      </div>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/my-moments.js"></script>
+</body>
+</html>

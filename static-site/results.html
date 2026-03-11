@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Human Bingo – Results</title>
+  <link rel="icon" href="logo.png" type="image/png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="main">
+    <div class="bg-blob">
+      <div class="blob1"></div>
+    </div>
+    <div id="loading" class="center">
+      <div class="loading">
+        <div class="spinner"></div>
+        <span class="text-lg">Loading results...</span>
+      </div>
+    </div>
+    <div id="content" class="max-w-lg mx-auto space-y-6 p-4" style="display: none;">
+      <div class="text-center space-y-2 pt-4">
+        <h1 class="font-title text-3xl">Game Over!</h1>
+        <p class="text-sm text-muted">Game Code: <span id="gameCode"></span></p>
+      </div>
+      <div id="winnersSection" class="glass-strong p-6 rounded-2xl space-y-4" style="display: none;">
+        <h2 class="text-xl font-bold text-accent" id="winnersTitle">🏆 Winner</h2>
+        <div id="winnersList"></div>
+      </div>
+      <div id="confessionsSection" class="glass-strong p-6 rounded-2xl space-y-4" style="display: none;">
+        <h2 class="text-xl font-bold text-accent">Player Confessions</h2>
+        <div id="confessionsList"></div>
+      </div>
+      <div class="glass-strong p-6 rounded-2xl space-y-4">
+        <h2 class="text-xl font-bold text-accent">All Players (<span id="playersCount">0</span>)</h2>
+        <div id="playersList"></div>
+      </div>
+      <div class="flex gap-3">
+        <a href="index.html" class="btn btn-primary flex-1 h-14 rounded-xl text-lg font-semibold">Back Home</a>
+        <a href="index.html" class="btn btn-outline flex-1 h-14 rounded-xl text-lg">Play Again</a>
+      </div>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/results.js"></script>
+</body>
+</html>

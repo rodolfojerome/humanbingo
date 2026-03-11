@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Human Bingo – Host Dashboard</title>
+  <link rel="icon" href="logo.png" type="image/png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="main p-4">
+    <div class="bg-blob">
+      <div class="blob1"></div>
+    </div>
+    <div id="loading" class="center">
+      <div class="loading">
+        <div class="spinner"></div>
+        <span class="text-lg">Loading dashboard...</span>
+      </div>
+    </div>
+    <div id="notFound" class="center" style="display: none;">
+      <div class="text-center space-y-4">
+        <p class="text-lg text-muted">Game not found</p>
+        <a href="index.html" class="btn btn-outline">Back Home</a>
+      </div>
+    </div>
+    <div id="dashboard" style="display: none;">
+      <div class="max-w-6xl mx-auto space-y-8">
+        <div class="space-y-4">
+          <h1 class="font-title text-4xl text-accent">Host Dashboard</h1>
+          <p class="text-muted">Game Code: <span id="sessionCode" class="font-mono font-bold"></span></p>
+        </div>
+        <div class="grid gap-8" style="grid-template-columns: 1fr; max-width: 42rem;">
+          <div class="space-y-8">
+            <div id="playingCard" class="glass p-6 space-y-6 rounded-2xl" style="display: none;">
+              <div>
+                <p class="text-sm text-muted mb-2">Current Prompt</p>
+                <p id="currentPromptText" class="text-3xl font-bold mb-4">Loading...</p>
+                <p class="text-sm text-muted">Round <span id="roundNum">0</span> of <span id="totalRounds">40</span></p>
+              </div>
+              <div id="playingActions" class="flex gap-3 flex-wrap" style="display: none;">
+                <button type="button" id="nextPromptBtn" class="btn btn-primary flex-1 py-6 rounded-xl">Next Prompt</button>
+                <button type="button" id="endGameBtn" class="btn btn-outline flex-1 py-6 rounded-xl">End Game</button>
+              </div>
+              <div id="endedMsg" class="text-center p-6 rounded-xl text-xl font-bold text-accent" style="display: none; background: rgba(217,119,6,0.2); border: 1px solid var(--accent);">Game Ended</div>
+            </div>
+            <div id="waitingCard" class="glass p-6 space-y-6 text-center rounded-2xl" style="display: none;">
+              <p id="waitingText" class="text-lg text-muted">Waiting for players to join...</p>
+              <button type="button" id="startGameBtn" class="btn btn-primary w-full py-6 text-lg rounded-xl" disabled>Start Game</button>
+            </div>
+          </div>
+          <div class="glass p-6 space-y-6 rounded-2xl">
+            <h2 class="text-2xl font-bold text-accent">Players (<span id="playersCount">0</span>)</h2>
+            <div id="playersList" class="space-y-3 max-h-96 overflow-y-auto"></div>
+          </div>
+        </div>
+        <div class="glass p-6 flex gap-3 flex-wrap">
+          <a id="gameBoardLink" href="#" class="btn btn-outline flex-1 rounded-xl">View Game Board</a>
+          <a href="index.html" class="btn btn-outline flex-1 rounded-xl">Exit Dashboard</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
