@@ -227,7 +227,7 @@ export default function DashboardPage() {
     return (
       <main className="min-h-screen bg-[var(--background)] flex items-center justify-center">
         <div className="flex items-center gap-3">
-          <Loader2 className="h-8 w-8 animate-spin text-[var(--accent)] />
+          <Loader2 className="h-8 w-8 animate-spin text-[var(--accent)]" />
           <span className="text-lg text-foreground/70">Loading dashboard...</span>
         </div>
       </main>
