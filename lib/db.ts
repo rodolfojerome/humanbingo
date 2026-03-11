@@ -1,18 +1,26 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+let _client: SupabaseClient | null = null;
 
 function getSupabaseClient(): SupabaseClient {
-  if (!supabaseUrl || !supabaseKey) {
+  if (_client) return _client;
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  if (!url || !key) {
     throw new Error(
       'Supabase is not configured. Add NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY to .env.local (see .env.example).'
     );
   }
-  return createClient(supabaseUrl, supabaseKey);
+  _client = createClient(url, key);
+  return _client;
 }
 
-export const supabase = getSupabaseClient();
+// Lazy: client is created on first use (avoids build-time errors when env is missing)
+export const supabase = new Proxy({} as SupabaseClient, {
+  get(_, prop) {
+    return (getSupabaseClient() as unknown as Record<string | symbol, unknown>)[prop];
+  },
+});
 
 // Single shared game: no lobbies, no admin. Set NEXT_PUBLIC_DEFAULT_GAME_CODE in .env to override.
 export const DEFAULT_GAME_CODE = process.env.NEXT_PUBLIC_DEFAULT_GAME_CODE || 'BINGO';
