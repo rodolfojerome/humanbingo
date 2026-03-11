@@ -255,7 +255,7 @@ export default function DashboardPage() {
       <div className="max-w-6xl mx-auto space-y-8">
         {/* Header */}
         <div className="space-y-4">
-          <h1 className="text-4xl font-black text-[var(--accent)] style={{ fontFamily: 'Fredoka One' }}>
+          <h1 className="text-4xl font-black text-[var(--accent)]" style={{ fontFamily: 'Fredoka One' }}>
             Host Dashboard
           </h1>
           <p className="text-foreground/70">Game Code: <span className="font-mono font-bold">{session.code}</span></p>
@@ -279,7 +279,7 @@ export default function DashboardPage() {
                   <div className="flex gap-3">
                     <Button
                       onClick={nextPrompt}
-                      className="flex-1 bg-accent text-[var(--accent)]"-foreground hover:bg-accent/90 py-6"
+                      className="flex-1 bg-accent text-accent-foreground hover:bg-accent/90 py-6"
                     >
                       <SkipForward className="mr-2 h-5 w-5" />
                       Next Prompt
@@ -296,7 +296,7 @@ export default function DashboardPage() {
 
                 {session.status === 'ended' && (
                   <div className="text-center p-6 bg-accent/20 border border-accent rounded-lg">
-                    <p className="text-xl font-bold text-[var(--accent)]>Game Ended</p>
+                    <p className="text-xl font-bold text-[var(--accent)]">Game Ended</p>
                   </div>
                 )}
               </div>
@@ -312,7 +312,7 @@ export default function DashboardPage() {
                 <Button
                   onClick={startGame}
                   disabled={players.length === 0}
-                  className="w-full bg-accent text-[var(--accent)]"-foreground hover:bg-accent/90 py-6 text-lg neon-glow"
+                  className="w-full bg-accent text-accent-foreground hover:bg-accent/90 py-6 text-lg neon-glow"
                 >
                   <Play className="mr-2 h-5 w-5" />
                   Start Game
@@ -323,7 +323,7 @@ export default function DashboardPage() {
 
           {/* Players Sidebar */}
           <div className="glass p-6 space-y-6">
-            <h2 className="text-2xl font-bold text-[var(--accent)]>Players ({players.length})</h2>
+            <h2 className="text-2xl font-bold text-[var(--accent)]">Players ({players.length})</h2>
             <div className="space-y-3 max-h-96 overflow-y-auto">
               {players.length > 0 ? (
                 players.map((player) => (
@@ -337,7 +337,7 @@ export default function DashboardPage() {
                   >
                     <div className="flex items-center justify-between">
                       <p className="font-semibold text-foreground">{player.name}</p>
-                      {player.won && <span className="text-sm font-bold text-[var(--accent)]>BINGO!</span>}
+                      {player.won && <span className="text-sm font-bold text-[var(--accent)]">BINGO!</span>}
                     </div>
                   </div>
                 ))
